@@ -15,7 +15,9 @@ const features = [
 const faqs = [
   { question: 'Which databases can I connect to?', answer: 'hey db currently supports PostgreSQL. Other database engines are not supported in version 0.1.' },
   { question: 'Does my data leave my computer?', answer: 'hey db connects directly from your computer to the PostgreSQL server you choose. There’s no hosted hey db backend, account, or telemetry. Query tabs and loaded results stay in memory; remembered passwords use your operating system’s credential store.' },
-  { question: 'Where are the desktop downloads?', answer: 'The project is in early development, and packaged installers haven’t been published yet. You can download the source and follow the build guide today. The current local build is for Apple Silicon Macs running macOS 13 or later. Windows and Linux builds have not yet received manual platform testing.' },
+  { question: 'How do I install hey db?', answer: 'Click Download for Mac to get the DMG installer. Open it, drag hey db into Applications, and launch the app. You can connect to an existing PostgreSQL database or try the built-in demo. No source build, Node.js, or Rust installation is needed.' },
+  { question: 'Which computers are supported?', answer: 'The download is for Apple Silicon (M-series) Macs running macOS 13 Ventura or later. Intel Mac, Windows, and Linux installers are not available in this release.' },
+  { question: 'Is this preview Apple-notarized?', answer: 'This early preview is ad-hoc signed and is not Apple-notarized, so macOS may block the first launch. The installation guide links to Apple’s instructions and includes steps for checking the download against its published checksum.' },
   { question: 'Is hey db really free?', answer: 'Yes. hey db is open source under the MIT license. You can use it, inspect the code, modify it, and contribute on GitHub.' },
 ];
 ---
@@ -67,10 +69,10 @@ const faqs = [
         <h1 id="hero-title">Your database. <br /><span>A calmer place to work.</span></h1>
         <p class="hero-description">Meet hey db. A focused PostgreSQL workspace for exploring, <br class="desktop-break" /> querying, and making yourself at home in your data.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#download"><Icon name="down" size={18} /> Get hey db</a>
+          <a class="button button-primary" href={site.macDownload}><Icon name="down" size={18} /> Download for Mac</a>
           <a class="button button-secondary" href={site.repository} target="_blank" rel="noopener noreferrer"><Icon name="github" size={18} /> View on GitHub <Icon name="arrow" size={16} /></a>
         </div>
-        <p class="hero-note">Free & open source <span>·</span> Local-first <span>·</span> Made for PostgreSQL</p>
+        <p class="hero-note">Apple Silicon <span>·</span> macOS 13+ <span>·</span> Free & open source</p>
 
         <figure class="workspace-figure">
           <div class="workspace-backdrop">
@@ -98,7 +100,28 @@ const faqs = [
       </section>
 
       <section class="download-section container" id="download" aria-labelledby="download-title">
-        <div class="download-card"><div class="download-copy"><span class="release-label"><span class="status-dot"></span> EARLY DAYS. OPEN POSSIBILITIES.</span><h2 id="download-title">Say hey to <br />your database.</h2><p>A little more clarity in your everyday work. <br />Get the source and make it yours.</p><div class="download-actions"><a class="button button-lime" href={site.sourceDownload}><Icon name="down" size={18} /> Download source <span class="button-format">.zip</span></a><a class="download-guide" href={`${site.repository}#develop`} target="_blank" rel="noopener noreferrer">Build guide <Icon name="arrow" size={16} /></a></div><p class="release-note">Installers aren’t published yet. <a href={site.releases} target="_blank" rel="noopener noreferrer">Follow GitHub Releases <Icon name="arrow" size={12} /></a></p></div><div class="download-terminal"><div class="terminal-header"><span><i></i><i></i><i></i></span><span>from source, with love</span><Icon name="terminal" size={15} /></div><div class="terminal-body"><p class="terminal-comment"># A new home for your data</p><code><span>$</span> git clone \ <br /><span class="clone-url">https://github.com/heysmmprovider/hey-db.git</span> <br /><span>$</span> cd hey-db <br /><span>$</span> npm ci <br /><span>$</span> npm run desktop</code><p class="terminal-comment terminal-end"># Let's see what you're working on.<span class="terminal-cursor"></span></p></div><div class="terminal-footer"><span>Node.js 22.12+ · Rust · Tauri prerequisites</span><button id="copy-command" aria-label="Copy installation commands" title="Copy installation commands"><Icon name="copy" size={16} /><span id="copy-label" aria-live="polite">Copy</span></button></div></div></div>
+        <div class="download-card">
+          <div class="download-copy">
+            <span class="release-label"><span class="status-dot"></span> EARLY DAYS. OPEN POSSIBILITIES.</span>
+            <h2 id="download-title">Say hey to <br />your database.</h2>
+            <p>A little more clarity in your everyday work. <br />Download the app and make yourself at home.</p>
+            <div class="download-actions">
+              <a class="button button-lime" href={site.macDownload}><Icon name="down" size={18} /> Download for Mac <span class="button-format">.dmg</span></a>
+              <a class="download-guide" href={site.installGuide} target="_blank" rel="noopener noreferrer">Install guide <Icon name="arrow" size={16} /></a>
+            </div>
+            <p class="release-note">Apple Silicon · macOS 13 or later · v{site.version}</p>
+            <p class="release-note">Early preview · Not Apple-notarized. <a href={site.installGuide} target="_blank" rel="noopener noreferrer">First-launch help <Icon name="arrow" size={12} /></a></p>
+          </div>
+          <div class="download-terminal">
+            <div class="terminal-header"><span><i></i><i></i><i></i></span><span>ready in a few clicks</span><Icon name="check" size={15} /></div>
+            <ol class="install-steps">
+              <li><span class="install-step-number">01</span><div><strong>Open the download.</strong><p>Double-click the hey db .dmg file.</p></div></li>
+              <li><span class="install-step-number">02</span><div><strong>Make it at home.</strong><p>Drag hey db into Applications.</p></div></li>
+              <li><span class="install-step-number">03</span><div><strong>Say hey to your data.</strong><p>Launch the app. Connect or try the demo.</p></div></li>
+            </ol>
+            <div class="terminal-footer install-footer"><span>Prefer to build it yourself?</span><a href={site.sourceDownload}>Download source <Icon name="arrow" size={13} /></a></div>
+          </div>
+        </div>
       </section>
 
       <section class="faq-section container" aria-labelledby="faq-title"><div><p class="eyebrow">A FEW THINGS TO KNOW</p><h2 id="faq-title">Before you <br />say hello.</h2></div><div class="faq-list">{faqs.map((faq) => <details><summary>{faq.question}<span class="faq-toggle"><Icon name="plus" size={19} /></span></summary><p>{faq.answer}</p></details>)}</div></section>
@@ -113,19 +136,6 @@ const faqs = [
       document.querySelector('#open-preview')?.addEventListener('click', () => preview?.showModal());
       document.querySelector('#close-preview')?.addEventListener('click', () => preview?.close());
       preview?.addEventListener('click', (event) => { if (event.target === preview) preview.close(); });
-      const copyButton = document.querySelector<HTMLButtonElement>('#copy-command');
-      const copyLabel = document.querySelector('#copy-label');
-      let copyReset: ReturnType<typeof setTimeout>;
-      copyButton?.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText('git clone https://github.com/heysmmprovider/hey-db.git\ncd hey-db\nnpm ci\nnpm run desktop');
-          if (copyLabel) copyLabel.textContent = 'Copied!';
-        } catch {
-          if (copyLabel) copyLabel.textContent = 'Select to copy';
-        }
-        clearTimeout(copyReset);
-        copyReset = setTimeout(() => { if (copyLabel) copyLabel.textContent = 'Copy'; }, 2500);
-      });
     </script>
   </body>
 </html>

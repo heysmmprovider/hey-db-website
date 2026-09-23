@@ -35,17 +35,21 @@ Upload `dist/` to your static hosting provider. No backend or environment secret
 
 ## Content
 
-- `src/data/site.ts`: repository, version, source download, and release links.
+- `src/data/site.ts`: repository, version, macOS installer, installation guide, source download, and release links.
 - `src/data/projects.ts`: the maker's 17 other projects, displayed discreetly in the footer as visible standard links. They do not have `nofollow` or `sponsored` attributes.
 - `src/pages/index.astro`: landing page, product copy, FAQs, and interactions.
 - `src/styles/global.css`: responsive styles.
 - `src/assets/workspace.png`: real app screenshot with synthetic sample data, copied from the hey-db project.
 - `public/og-image.png`: sharing image.
 
-The page includes descriptive metadata, optional canonical URLs, Open Graph tags, and SoftwareSourceCode structured data. Navigation and all external links work without JavaScript; JavaScript only powers the enlarged screenshot and copy button. Fonts are loaded from Google Fonts with local system fallbacks.
+The page includes descriptive metadata, optional canonical URLs, Open Graph tags, and SoftwareSourceCode structured data. Navigation and all external links work without JavaScript; JavaScript only powers the enlarged screenshot. Fonts are loaded from Google Fonts with local system fallbacks.
 
 ## Downloads
 
-The repository had no published releases when this page was created. The download button therefore retrieves the source ZIP from the public `main` branch. The site clearly states that packaged installers are not yet available and links to GitHub Releases. Once installers are published, update the download section and FAQ with verified release assets, supported platforms, and signing details.
+Both **Download for Mac** buttons link directly to the GitHub-hosted DMG at:
 
-Feature and platform claims reflect hey db 0.1.0: PostgreSQL only; local Apple Silicon build for macOS 13+; Windows and Linux builds have not received manual platform QA.
+https://github.com/heysmmprovider/hey-db/blob/main/downloads/hey-db-0.1.0-macos-arm64.dmg?raw=true
+
+The installer supports Apple Silicon (M-series) Macs running macOS 13 Ventura or later. Users open the DMG, drag hey db into Applications, and launch the app. No source build or developer tools are required. The download is an ad-hoc-signed, non-notarized early preview; the site links to the repository’s installation guide for first-launch help and checksum verification. Intel Mac, Windows, and Linux installers are not available in this release.
+
+A secondary **Download source** link remains available for contributors. When a new version is published, update the version and installer URL in `src/data/site.ts`.
