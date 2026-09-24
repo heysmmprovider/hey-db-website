@@ -48,7 +48,7 @@ The page includes descriptive metadata, optional canonical URLs, Open Graph tags
 
 Both **Download for Mac** buttons link directly to the GitHub-hosted DMG at:
 
-https://github.com/heysmmprovider/hey-db/blob/main/downloads/hey-db-0.1.0-macos-arm64.dmg?raw=true
+https://github.com/heysmmprovider/hey-db/blob/main/downloads/hey-db-macos-arm64.dmg?raw=true
 
 The installer supports Apple Silicon (M-series) Macs running macOS 13 Ventura or later. Users open the DMG, drag hey db into Applications, and launch the app. No source build or developer tools are required. The download is an ad-hoc-signed, non-notarized early preview; the site links to the repository’s installation guide for first-launch help and checksum verification. Intel Mac, Windows, and Linux installers are not available in this release.
 
