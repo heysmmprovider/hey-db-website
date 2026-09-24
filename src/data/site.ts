@@ -1,6 +1,6 @@
 export const site = {
   name: 'hey db',
-  version: '0.1.0',
+  version: '0.1.1',
   repository: 'https://github.com/heysmmprovider/hey-db',
   releases: 'https://github.com/heysmmprovider/hey-db/releases',
   sourceDownload: 'https://github.com/heysmmprovider/hey-db/archive/refs/heads/main.zip',
